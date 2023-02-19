@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.0.13",
+    "nodemon": "^2.0.20"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,4 @@
     "url": "https://github.com/HumzaShaukat/SocialNetwork-API/issues"
   },
   "homepage": "https://github.com/HumzaShaukat/SocialNetwork-API#readme"
-  
 }

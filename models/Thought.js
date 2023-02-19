@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const reactionSchema = require("./Reaction");
 
 const thoughtSchema = new mongoose.Schema(
   {
@@ -10,7 +11,7 @@ const thoughtSchema = new mongoose.Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
+      default: Date.now(),
       get: (createdAt) => createdAt.toDateString(),
     },
     username: {
@@ -22,7 +23,9 @@ const thoughtSchema = new mongoose.Schema(
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
+    id: false,
   }
 );
 
@@ -30,6 +33,6 @@ thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thought = model("thought", thoughtSchema);
+const Thought = mongoose.model("thought", thoughtSchema);
 
-model.exports = Thought;
+module.exports = Thought;

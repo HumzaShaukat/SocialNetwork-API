@@ -18,18 +18,19 @@ const userSchema = new mongoose.Schema({
   },
   thoughts: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "thought",
     },
   ],
   friends: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "user",
+      unique: true,
     },
   ],
 });
 
-const User = model("user", userSchema);
+const User = mongoose.model("user", userSchema);
 
 module.exports = User;
